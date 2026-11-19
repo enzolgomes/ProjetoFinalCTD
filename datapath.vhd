@@ -169,17 +169,7 @@ begin
     -- Para emulador online (CLK_500Hz em usertop.vhd): usar Div_Freq
     -- Para placa DE2 (CLOCK_50 em usertop.vhd): comentar Div_Freq e descomentar Div_Freq_DE2
     -- =========================================================================
-    DIV_FREQ_EMU : Div_Freq
-        port map (
-            clk     => clk,
-            reset   => R1,
-            CLK_2Hz => CLK_2Hz,
-            CLK_3Hz => CLK_3Hz,
-            CLK_4Hz => CLK_4Hz,
-            CLK_5Hz => CLK_5Hz
-        );
-
-    -- DIVFREQ : Div_Freq_DE2
+    -- DIV_FREQ_EMU : Div_Freq
     --     port map (
     --         clk     => clk,
     --         reset   => R1,
@@ -188,6 +178,16 @@ begin
     --         CLK_4Hz => CLK_4Hz,
     --         CLK_5Hz => CLK_5Hz
     --     );
+
+    DIVFREQ : Div_Freq_DE2
+        port map (
+            clk     => clk,
+            reset   => R1,
+            CLK_2Hz => CLK_2Hz,
+            CLK_3Hz => CLK_3Hz,
+            CLK_4Hz => CLK_4Hz,
+            CLK_5Hz => CLK_5Hz
+        );
 
     -- Selecao de velocidade conforme rodada atual
     U_SELECTOR : selector
